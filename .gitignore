@@ -1,0 +1,50 @@
+__pycache__# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+.venv/
+dist/
+build/
+*.egg-info/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# 환경설정 (민감정보)
+.env
+.env.local
+.env.prod
+config.ini
+secrets.json
+
+# IDE/Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+*.log
+
+# 데이터베이스
+*.db
+*.sqlite
+*.sqlite3
+
+# 임시파일
+*.tmp
+*.temp
+.cache/
+logs/
+
+# 의존성 (선택적)
+node_modules/
+.tox/
