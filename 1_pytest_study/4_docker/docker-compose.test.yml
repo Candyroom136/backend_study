@@ -1,0 +1,15 @@
+services:
+  user-service:
+    image: user-service-test:latest  # 명시적으로 빌드된 이미지 사용
+    ports:
+      - "8000:8000"  # 포트 바인딩으로 localhost 접근 가능
+    environment:
+      - DATABASE_URL=${DATABASE_URL}
+      - ENV=test
+    extra_hosts:
+      - "host.docker.internal:host-gateway"  # macOS에서 호스트 접근
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:8000/health || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
