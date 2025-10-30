@@ -1,0 +1,17 @@
+services:
+  postgres_trigger:
+    image: postgres:15
+    container_name: trigger_test_db
+    environment:
+      POSTGRES_USER: triggeruser
+      POSTGRES_PASSWORD: triggerpass
+      POSTGRES_DB: triggerdb
+    ports:
+      - "5434:5432"  # 5434로 매핑 (5433은 tstring 테스트용)
+    volumes:
+      - ./init_trigger.sql:/docker-entrypoint-initdb.d/init_trigger.sql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U triggeruser -d triggerdb"]
+      interval: 5s
+      timeout: 5s
+      retries: 5

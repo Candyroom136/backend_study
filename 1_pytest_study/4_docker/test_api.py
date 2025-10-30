@@ -23,7 +23,7 @@ def test_get_all_users(docker_services):
 
 def test_get_user_by_id(docker_services):
     """특정 사용자 조회 API 테스트"""
-    response = requests.get("http://localhost:8000/users/1")
+    response = requests.get("http://ec2-3-38-105-120.ap-northeast-2.compute.amazonaws.com:8000/users/1")   
     assert response.status_code == 200
     
     data = response.json()
